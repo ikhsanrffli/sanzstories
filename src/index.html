@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="/styles/main.css" />
+
+    <!-- Skip Link for Accessibility -->
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: #007bff;
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 1000;
+      }
+      .skip-link:focus {
+        top: 6px;
+      }
+    </style>
+
+    <title>App</title>
+  </head>
+  <body>
+    <!-- Skip to Main Content (Aksesibilitas Advance) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header>
+      <div class="main-header container">
+        <a class="brand-name" href="#/">Dicoding Story</a>
+
+        <nav id="navigation-drawer" class="navigation-drawer">
+          <ul id="nav-list" class="nav-list">
+            <li><a href="#/">Beranda</a></li>
+            <li><a href="#/story-list">Daftar Cerita</a></li>
+            <li><a href="#/add-story">Tambah Cerita</a></li>
+            <li><a href="#/login">Login</a></li>
+            <li><a href="#/register">Daftar</a></li>
+            <li><a href="#/about">About</a></li>
+          </ul>
+        </nav>
+
+        <button id="drawer-button" class="drawer-button">☰</button>
+      </div>
+    </header>
+
+    <!-- Main Content (Tempat SPA akan memuat view) -->
+    <main id="main-content" class="main-content"></main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="/scripts/index.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+    </script>
+  </body>
+</html>

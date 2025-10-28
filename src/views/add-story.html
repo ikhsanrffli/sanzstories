@@ -1,0 +1,60 @@
+<div class="add-story-container page-container">
+  <div class="add-story-card content-card">
+    <h2>BAGIKAN CERITAMU</h2>
+    <p>Pilih lokasi di peta dan unggah cerita Anda. Setiap cerita adalah berita!</p>
+
+    <form id="add-story-form">
+      <div class="form-group">
+        <label for="description-input">Deskripsi:</label>
+        <textarea id="description-input" name="description" rows="4" required placeholder="Tulis cerita Anda di sini..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="photo-input">Unggah Foto (maks. 1MB):</label>
+        <input type="file" id="photo-input" name="photo" accept="image/*" required>
+        <div id="preview-img" class="preview-container"></div>
+      </div>
+
+<div class="form-group camera-group">
+  <label>Ambil Foto Langsung:</label>
+  <button type="button" id="camera-btn" class="btn btn-outline" aria-label="Buka kamera perangkat">📷 Buka Kamera</button>
+  <video id="video" autoplay style="display:none; max-width: 100%; margin-top: 10px;" aria-label="Live video feed dari kamera"></video>
+    <button type="button" id="capture-btn" class="btn btn-success" style="display:none;">Ambil Foto</button>
+  <button type="button" id="cancel-btn" class="btn btn-outline" style="display:none;">Batal</button>
+</div>
+
+      <div class="form-group">
+        <label>Pilih Lokasi di Peta:</label>
+        <div id="map" class="map-container" role="img" aria-label="Peta interaktif untuk memilih lokasi cerita"></div>
+        <input type="hidden" id="lat-input" name="lat"> 
+        <input type="hidden" id="lon-input" name="lon">
+      </div>
+
+      <button type="submit" id="submit-btn" class="btn btn-primary">Kirim Cerita</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Cek status login saat halaman dimuat
+  const token = localStorage.getItem('token');
+  const container = document.querySelector('.add-story-container');
+
+  if (!token) {
+    container.innerHTML = `
+      <div class="add-story-card content-card">
+        <h2>BAGIKAN CERITAMU!</h2>
+        <p>Silakan login terlebih dahulu untuk berbagi cerita.</p>
+        <a href="#/login" class="btn btn-primary" style="width: 100%;">Login</a>
+      </div>
+    `;
+  } else {
+    // Tampilkan skeleton dulu (opsional, tidak ada fungsi skeleton di sini)
+
+    // Lalu inisialisasi peta dan form
+    setTimeout(() => {
+      // initMap dipanggil dari form.js
+      import('../scripts/form.js').then(m => m.setupForm());
+    }, 300);
+  }
+</script>

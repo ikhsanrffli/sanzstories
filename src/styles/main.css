@@ -1,0 +1,466 @@
+/* ============================== */
+/* CSS Global - Tema Surat Kabar */
+/* ============================== */
+
+/* Font Keluarga */
+body {
+    font-family: 'Times New Roman', Times, serif; /* Font klasik koran */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Kertas agak abu-abu */
+    color: #333;
+}
+
+/* Container utama */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================== */
+/* Header (Kop Surat Kabar) */
+/* ============================== */
+
+header {
+    background-color: white;
+    border-bottom: 3px double #333; /* Garis tebal pemisah */
+    box-shadow: none;
+    padding: 10px 0 0 0;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+}
+
+.brand-name {
+    font-size: 2.5rem;
+    font-family: Georgia, serif; /* Font logo yang lebih tegas */
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    flex-grow: 1;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.drawer-button {
+    display: none; /* Sembunyikan tombol drawer untuk desktop */
+}
+
+/* Navigasi Kategori (Menu di Bawah Kop) */
+.navigation-drawer {
+    width: 100%;
+    margin-top: 5px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.nav-list li {
+    padding: 8px 15px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border-right: 1px solid #ddd;
+}
+.nav-list li:last-child {
+    border-right: none;
+}
+.nav-list li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
+}
+.nav-list li a:hover {
+    color: #b00; /* Merah koran */
+}
+
+
+/* ============================== */
+/* Main Content & Umum */
+/* ============================== */
+
+.main-content {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin: 20px auto;
+}
+
+/* Transisi Halaman (Router) */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Notification & Skip Link - pertahankan */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+.notification.fade-out { opacity: 0; }
+.notification.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.notification.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+/* ============================== */
+/* Halaman Khusus (Form, Login, dll) */
+/* ============================== */
+
+/* Gaya untuk Halaman List (Story List) */
+.story-list-container {
+    padding: 20px;
+    background-color: white;
+}
+
+.story-list-container h1 {
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.story-list-container h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Grid Cerita - Meniru Tata Letak Kolom Koran */
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom */
+    gap: 30px 20px; /* Jarak antara cerita */
+    margin-top: 20px;
+}
+
+.story-card {
+    background: white;
+    border: none;
+    border-bottom: 1px dotted #ccc; /* Garis putus-putus pemisah */
+    padding: 0 0 15px 0;
+    box-shadow: none;
+    transition: none;
+}
+.story-card:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: #fafafa;
+}
+
+.story-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.story-card h3 {
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.story-card p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.95rem;
+    color: #555;
+    margin: 5px 0 10px 0;
+}
+
+.story-card small,
+.story-location {
+    font-size: 0.8rem;
+    color: #888;
+    display: block;
+    font-style: italic;
+}
+
+/* Map - pertahankan agar tetap berfungsi */
+.map-container {
+    height: 400px;
+    margin-bottom: 30px;
+    border: 1px solid #333; /* Bingkai peta yang lebih tegas */
+    border-radius: 0;
+    overflow: hidden;
+}
+
+/* Filter Button - Sederhanakan */
+.filter-controls {
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.filter-controls .btn {
+    border: 1px solid #333;
+    color: #333;
+    background: transparent;
+    font-size: 0.9rem;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+.filter-controls .btn.active {
+    background-color: #333;
+    color: white;
+}
+
+/* Gaya untuk Loading */
+.loading-spinner {
+    border-top: 2px solid #b00;
+}
+
+/* ============================== */
+/* Mobile Responsiveness */
+/* ============================== */
+
+@media (max-width: 768px) {
+    .brand-name {
+        font-size: 2rem;
+    }
+    .navigation-drawer {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        z-index: 999;
+    }
+    .navigation-drawer.open {
+        display: block;
+    }
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+    .nav-list li {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px dotted #eee;
+    }
+    .nav-list li:last-child {
+        border-bottom: none;
+    }
+    .drawer-button {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+    }
+
+    /* List cerita menjadi 1 kolom di HP */
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* List cerita menjadi 2 kolom di tablet */
+    .story-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ============================== */
+/* Form, Login, Register - Gaya Baru */
+/* ============================== */
+
+/* Container & Card Utama */
+.login-container, .page-register, .add-story-container {
+    padding: 20px;
+    /* Ubah dari flexbox biasa menjadi tata letak yang memaksa kartu di tengah */
+    display: block; /* Agar child tidak mengambil lebar penuh parent */
+    text-align: center; /* Untuk memposisikan card di tengah */
+    min-height: 80vh;
+}
+
+.content-card {
+    max-width: 400px; /* Batasi lebar maksimum card, misalnya 400px */
+    width: 100%;
+    margin: 40px auto; /* 👈 KUNCI: Membuat card terpusat secara horizontal */
+    background: white;
+    padding: 30px;
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
+    text-align: center;
+}
+.content-card h2 {
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    color: #333;
+}
+.content-card p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Gaya Input Baru (Ber-ikon) */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.95rem;
+}
+
+/* Container Input dengan Ikon */
+.input-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-icon-container:focus-within {
+    border-color: #007bff; /* Warna biru saat fokus */
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+}
+
+.input-icon {
+    padding: 10px;
+    color: #888;
+    /* Ganti ikon default dengan karakter atau font awesome jika tersedia */
+}
+
+.form-group input,
+.form-group textarea {
+    flex-grow: 1;
+    width: 100%; /* Agar full width di dalam container */
+    padding: 10px 10px;
+    border: 1px black;
+    outline: none;
+    font-size: 1rem;
+    box-sizing: border-box;
+    border-radius: 0 4px 4px 0;
+}
+.form-group input,
+.form-group textarea,
+.btn-primary,
+.btn-outline {
+    width: 100%; /* Pastikan elemen-elemen ini mengambil lebar 100% dari parent (content-card) */
+    box-sizing: border-box; /* Sangat penting agar padding tidak menambah lebar total */
+}
+.form-group textarea {
+    border: 1px solid #ccc; /* Border tetap ada untuk textarea */
+    border-radius: 4px;
+    padding: 10px;
+}
+
+/* Gaya Tombol (Gaya modern, tidak terlalu koran) */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff; /* Warna biru tegas */
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Untuk tombol sekunder/outline, gunakan gaya modern yang sama */
+.btn-outline {
+    border: 1px solid #007bff;
+    color: #007bff;
+    background: white;
+    border-radius: 4px;
+}
+.btn-outline:hover {
+    background-color: #e6f2ff;
+}
+
+/* Footer Form */
+.login-footer {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+.input-icon-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+/* Tambahkan gaya khusus untuk grup kamera */
+.camera-group {
+    /* Gunakan flexbox untuk mengatur tombol Ambil Foto & Batal berdampingan */
+    display: flex;
+    flex-wrap: wrap; /* Biar responsif */
+    gap: 5px; /* Jarak antar tombol */
+    justify-content: space-between;
+}
+
+/* Atur tombol Ambil Foto dan Batal agar berbagi ruang */
+.camera-group .btn-success,
+.camera-group .btn-outline {
+    /* Override width inline style di HTML */
+    width: calc(50% - 3px) !important; 
+    margin: 5px 0;
+}
+
+/* Perbaiki Video Preview agar mengambil lebar penuh */
+#video {
+    width: 100%; 
+    max-width: 100%; 
+    height: auto; 
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Pastikan tombol Buka Kamera juga mengambil lebar penuh */
+.camera-group #camera-btn {
+    width: 100%;
+    margin-bottom: 5px;
+}

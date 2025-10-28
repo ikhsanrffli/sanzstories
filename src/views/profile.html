@@ -1,0 +1,24 @@
+<div class="page-profile page-container">
+  <div class="content-card profile-card">
+    <h1>PROFIL PENGGUNA</h1>
+    <p>Selamat datang kembali, <strong id="profile-name" style="font-family: Georgia, serif; font-size: 1.2rem;"></strong>.</p>
+
+    <div id="notification-section" style="margin-top: 24px; padding: 16px; border: 1px dashed #ccc; border-radius: 0; display: none; text-align: left;">
+      <h3>Notifikasi Berita Terbaru</h3>
+      <button id="enable-notif-btn" class="btn btn-outline" style="display: none; width: auto; margin: 5px 0;">🔔 Aktifkan Notifikasi</button>
+      <button id="disable-notif-btn" class="btn btn-primary" style="display: none; width: auto; margin: 5px 0;">❌ Nonaktifkan Notifikasi</button>
+      <p id="notif-status" style="font-size: 0.9rem; color: #666; margin-top: 8px;"></p>
+    </div>
+
+    <button id="logout-btn" class="btn btn-secondary" style="margin-top: 20px; width: 100%; max-width: 300px;">Keluar / Logout</button>
+  </div>
+</div>
+<style>
+/* Hapus semua style di sini karena sudah di handle main.css */
+/* Tapi pastikan class .btn-primary dan .btn-secondary di main.css sudah diperbaiki */
+.profile-card {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+</style>
